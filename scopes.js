@@ -1,10 +1,10 @@
 var digit = 5;
 
 var sayHello = function() {
-    test = 'test'
+    // always use var keyword to define variable in context scope
+    var test = 'test'
     console.log(test);
 };
-
 
 //var test = 'test2';
 sayHello();

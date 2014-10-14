@@ -1,20 +1,10 @@
-var http = require('http'),
-    url = require('url');
+var http = require('http');
+var debug = require('debug')('server');
 
-var server = new http.Server(function(req, res) {
-    //console.log(req.headers);
-    console.log(req.method, req.url);
+var server = new http.Server(); // EventEmitter
 
-    var urlParsed = url.parse(req.url, true);
-    //console.log(urlParsed);
-
-    if ( urlParsed.pathname == '/echo' && urlParsed.query.message ) {
-        res.end( urlParsed.query.message );
-    } else {
-        res.statusCode = 404;
-        res.end('incorrect query!');
-    };
-    
-}); // EventEmitter
+server.on('request', require('./request'));
 
 server.listen(1337, 'localhost');
+
+debug('Server is running');
