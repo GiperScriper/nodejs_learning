@@ -1,15 +1,11 @@
-var User = require('./user');
+var http = require('http');
 
-function run() {
-    var john = new User('john');
-    var mike = new User('mike');
+var server = new http.Server(); // EventEmitter
 
-    john.hello(mike);
-};
+server.listen(1337, 'localhost');
 
+var counter = 0;
 
-if (module.parent) {
-    exports.run = run;
-} else {
-    run();
-}
+server.on('request', function(req, res){
+    res.end('hello, world! ' + ++counter);
+});
