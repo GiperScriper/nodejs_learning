@@ -19,7 +19,7 @@ app.get('/google/feeds/for/:search', function(req, res){
 	console.log(targetUrl);
 	
 	// make request to search
-	request(targetUrl, function(err, response, body){
+	request(targetUrl, function(err, response, body){		
 		var feeds = JSON.parse(body);
 		res.render('google-search', {feeds: feeds.responseData, keyword: search});		
 	});	
@@ -27,7 +27,7 @@ app.get('/google/feeds/for/:search', function(req, res){
 
 
 app.listen(5005, function(){
-	console.log('Lestening on port 5005...');
+	console.log('Listening on port 5005...');
 });
 
 /*
