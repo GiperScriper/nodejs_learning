@@ -1,0 +1,15 @@
+<% layout('boilerplate') %>
+
+
+	<h2>Users list</h2>
+	
+
+
+<ul class="list-group">
+	<% users.forEach(function (user) { %>
+		<li class="list-group-item">
+			<strong><%=  user.name %></strong> 
+			<span class="badge"><%= moment(user.created).format("DD/MM/YYYY") %></span>			 
+		</li>
+	<% }); %>
+</ul>

@@ -13,13 +13,13 @@ var users = require('./routes/users');
 var app = express();
 
 app.engine('ejs', engine);
+app.locals.moment = require('moment');
 
 //var accessLogStream = fs.createWriteStream(__dirname + '/access.log', {flags: 'a'})
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.set('env', 'production');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));

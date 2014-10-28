@@ -1,7 +1,7 @@
 var User = require('./user').User;
 
 var admin = new User({
-    name: "root",
+    name: "migel",
     password: "123456"
 });
 

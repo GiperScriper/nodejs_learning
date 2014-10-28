@@ -6,7 +6,7 @@ var User = require('../schema/user').User;
 router.get('/', function (req, res) {
     User.find({}, function (err, data) {
         if (err) throw err;
-        res.json(data);
+        res.render('users', { users: data });
     });  
 });
 
