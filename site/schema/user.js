@@ -14,7 +14,13 @@ var schemaUser = new db.Schema({
     },
 
     salt: {
-        type: String
+        type: String,
+        require: true
+    },
+
+    iterations: {
+        type: Number,
+        require: true
     },
 
     created: {
@@ -24,10 +30,48 @@ var schemaUser = new db.Schema({
 
 });
 
-function createHash(password, salt) {
-    return crypto.createHmac('sha1', salt).update(password).digest('hex');
-}
 
-var salt = 'salt';
-var pass = 'password2';
-console.log(createHash(pass, salt));
+schemaUser.virtual('password')
+    .set(function (data){
+        this.salt = Math.random().toString();
+        this.iterations = parseInt((Math.random() * 100) + 1);
+        this.hash = this.getHash(data); 
+    })
+    .get(function (){
+        return this.hash;
+    });
+
+
+schemaUser.methods.getHash = function (password) {
+    var hash = crypto.createHmac('sha1', this.salt);
+
+    for (var i = 0; i < this.iterations; i++)
+        hash = hash.update(password);
+
+    return hash.digest('hex');
+};
+
+
+schemaUser.methods.checkPassword = function (data){
+    return this.getHash(data) === this.hash
+};
+
+
+exports.User = db.model('User', schemaUser);
+
+
+// var salt = Math.random().toString();
+// var iterations = parseInt((Math.random() * 100) + 1);
+// var pass = 'simple_password';
+
+// function createHash(password, salt, iterations) {
+//     var hash = crypto.createHmac('sha1', salt);
+    
+//     for (var i = 0; i < iterations; i++)
+//         result = result.update(password);    
+    
+//     return result.digest('hex');
+// }
+
+
+// console.log(createHash(pass, salt, iterations));
