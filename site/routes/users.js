@@ -13,11 +13,11 @@ router.get('/', function (req, res) {
 
 
 /* GET get user. */
-router.get('/:id', function (req, res) {
-    
+router.get('/:id', function (req, res) {    
     User.findById(req.params.id, function (err, data) {
         if (err) throw err;
         res.json(data);
+        console.log(data.get('password'));
     });
 });
 

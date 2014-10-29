@@ -34,11 +34,12 @@ var schemaUser = new db.Schema({
 
 schemaUser.virtual('password')
     .set(function (data) {
+        //this.plainPassword = data;
         this.salt = Math.random().toString();
         this.iterations = parseInt((Math.random() * 100) + 1);
         this.hash = this.getHash(data); 
     })
-    .get(function () {
+    .get(function () {        
         return this.hash;
     });
 
