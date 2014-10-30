@@ -16,7 +16,7 @@ router.get('/', function (req, res) {
         }                
         
         res.status(200).json(data.map(function (user) {            
-            // Mongoose object is immutable, need tmp variable and call toObject() function on mongoose object
+            // Mongoose object is immutable, need to call toObject() method on mongoose object
             var temp_user = user.toObject();            
             temp_user.links = { self : config.get('host') + config.get('port') + '/users/' + user._id };
             return temp_user;
