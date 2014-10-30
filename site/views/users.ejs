@@ -1,15 +1,15 @@
 <% layout('boilerplate') %>
-
-
-	<h2>Users list</h2>
-	
-
+<h2>Users list</h2>
 
 <ul class="list-group">
 	<% users.forEach(function (user) { %>
 		<li class="list-group-item">
-			<strong><%=  user.name %></strong> 
-			<span class="badge"><%= moment(user.created).format("DD/MM/YYYY") %></span>			 
+			<a href="/users/<%=  user._id %>"><strong><%=  user.name %></strong></a>
+            <strong>| ID: <%=  user._id %></strong>
+            <strong>| HASH: <%=  user.hash %></strong>
+             <a href="/users/<%=  user._id %>"><span class="glyphicon glyphicon-remove"></span></a>
+            <span class="label big-label label-primary pull-right"><%= moment(user.created).format("Do MMM YYYY") %></span>
+            <span class="label big-label label-success pull-right"><%= user.iterations %></span>						 
 		</li>
 	<% }); %>
 </ul>

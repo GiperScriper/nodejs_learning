@@ -13,28 +13,30 @@ var users = require('./routes/users');
 var app = express();
 
 app.engine('ejs', engine);
+
+// set for use from templates (date library)
 app.locals.moment = require('moment');
 
-//var accessLogStream = fs.createWriteStream(__dirname + '/access.log', {flags: 'a'})
+// create a write stream (in append mode)
+var accessLogStream = fs.createWriteStream(__dirname + '/logs/access.log', {flags: 'a'})
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
-app.use(logger('dev'));//, {stream: accessLogStream}));
+app.use(favicon(path.join(__dirname, '/public/favicon.ico')));
+app.use(logger('dev', {stream: accessLogStream}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+/* ROUTING */
 app.use('/', routes);
 app.use('/users', users);
 
-app.post('/test', function (req, res) {    
-    res.json({message: "request from post"})
-});
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

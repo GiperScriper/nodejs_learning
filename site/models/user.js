@@ -1,6 +1,7 @@
 var db = require('../db');
 var crypto = require('crypto');
 
+
 var schemaUser = new db.Schema({
     name: {
         type: String,
@@ -32,12 +33,12 @@ var schemaUser = new db.Schema({
 
 
 schemaUser.virtual('password')
-    .set(function (data){
+    .set(function (data) {
         this.salt = Math.random().toString();
         this.iterations = parseInt((Math.random() * 100) + 1);
         this.hash = this.getHash(data); 
     })
-    .get(function (){
+    .get(function () {
         return this.hash;
     });
 
@@ -52,7 +53,7 @@ schemaUser.methods.getHash = function (password) {
 };
 
 
-schemaUser.methods.checkPassword = function (data){
+schemaUser.methods.checkPassword = function (data) {
     return this.getHash(data) === this.hash
 };
 
