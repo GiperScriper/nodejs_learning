@@ -31,15 +31,10 @@ router.get('/', function (req, res) {
 router.get('/:id', function (req, res) {    
     
     User.findById(req.params.id, function (err, data) {
-        if (err) {
-            res.status(500).json(err);
-            return;
-        }
+        if (err) return res.status(500).json(err); 
         
-        if (!data) {
-            res.status(404).json({ message: "We didn't find a user with id: " + req.params.id });
-            return;
-        }        
+        if (!data)
+            return res.status(404).json({ message: "We didn't find a user with id: " + req.params.id }); 
         
         res.status(200).json(data);               
     });
@@ -88,15 +83,10 @@ router.put('/:id', function (req, res) {
 router.delete('/:id', function (req, res) {
     User.findByIdAndRemove(req.params.id, function (err, affected) {
         
-        if (err) {
-            res.status(500).json(err);
-            return;
-        }      
+        if (err) return res.status(500).json(err); 
         
-        if (affected === null) { 
-            res.status(404).json({ error: "We didn't find a movie with id: " + req.params.id });
-            return;
-        }
+        if (affected === null) 
+            returnres.status(404).json({ error: "We didn't find a movie with id: " + req.params.id });       
         
         res.set('Link', config.get('host') + config.get('port') + '/users; rel="collection"');
         res.status(204).end();
