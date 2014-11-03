@@ -86,7 +86,7 @@ router.delete('/:id', function (req, res) {
         if (err) return res.status(500).json(err); 
         
         if (affected === null) 
-            returnres.status(404).json({ error: "We didn't find a movie with id: " + req.params.id });       
+            return res.status(404).json({ error: "We didn't find a movie with id: " + req.params.id });       
         
         res.set('Link', config.get('host') + config.get('port') + '/users; rel="collection"');
         res.status(204).end();
