@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
   <head>
     <title><%= blocks.title %></title>
     <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <%- include scripts.ejs %>
   </head>
+  
   <body>
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
@@ -17,7 +17,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Node \ Express</a>
+          <a class="navbar-brand" href="#">MEAN</a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -32,6 +32,6 @@
     <div class="container">
       <%- body -%>
     </div>
-  
+    
   </body>
 </html>
