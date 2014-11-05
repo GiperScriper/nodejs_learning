@@ -1,6 +1,6 @@
 <% layout('boilerplate') -%>
 <% block('title', 'Users') %>
-<h2>Users list</h2>
+<h2>Users list,<small>&nbsp;counter: <%= users.length %></small></h2>
 <ul class="list-group">
 	<% users.forEach(function (user) { %>
 		<li class="list-group-item">
