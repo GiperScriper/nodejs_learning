@@ -11,3 +11,13 @@ body {
     font-size: 15px;
     margin-left: 10px;   
 }
+
+.event-width {
+    width: 300px;
+    margin-left: 60px;
+    float: left;
+}
+
+.votes-cursor {
+    cursor: pointer;
+}

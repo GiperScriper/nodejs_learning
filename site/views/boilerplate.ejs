@@ -3,8 +3,9 @@
   <head>
     <title><%= blocks.title %></title>
     <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/bootstrap/dist/css/flatly/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <%- include scripts.ejs %>
+    
   </head>
   
   <body>
@@ -23,7 +24,7 @@
           <ul class="nav navbar-nav">
             <li><a href="/">Home</a></li>
             <li><a href="/users">Users</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="/events">Events</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -32,6 +33,6 @@
     <div class="container">
       <%- body -%>
     </div>
-    
+    <%- include scripts.ejs %>
   </body>
 </html>

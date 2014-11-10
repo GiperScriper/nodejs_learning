@@ -6,4 +6,11 @@ router.get('/', function(req, res) {
   res.render('index');  
 });
 
+
+/* GET events page. */
+router.get('/events', function(req, res) {
+  res.render('events');  
+});
+
+
 module.exports = router;
