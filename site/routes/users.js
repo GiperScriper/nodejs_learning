@@ -1,9 +1,9 @@
-var express = require('express');
-var router = express.Router();
-var User = require('../models/user').User;
-var path = require('path');
-var config = require('../config');
-var wrapper = require('../lib/wrapper');
+var express = require('express'),
+    router = express.Router(),
+    User = require('../models/user').User,
+    path = require('path'),
+    config = require('../config'),
+    wrapper = require('../lib/wrapper');
 
 
 /* GET users listing. */
