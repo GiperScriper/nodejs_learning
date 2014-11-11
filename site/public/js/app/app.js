@@ -29,14 +29,21 @@
             };
 
 
-            $scope.saveUser = function () {
+            
+            // create resource
+            $scope.saveUser = function (saveUserForm) {
                var newUser = $resource('http://localhost:4000/users');
-               if (newUser.save({name: "Jorik", password: "just"})) {
-                    console.log('saved');
-                    $scope.events.push(newUser);
-                    
-               }
-            };           
+               
+                newUser.save($scope.user, function(data){
+                    console.log(data);
+                }); 
+            };
+
+
+            $scope.deleteUser = function (id) {
+                var newUser = $resource('http://localhost:4000/users/:id', { userId: '@id' });
+                console.log(newUser.get());
+            }           
 
             
     });
