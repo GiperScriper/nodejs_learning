@@ -5,16 +5,10 @@
     <h2>Events</h2>
     <hr>
     
-
-    <div class="row" style="margin-bottom:30px;">
-        <select class="form-control" ng-model="sortOrder">
-            <option name="title">Title</option>
-            <option name="-votes">Votes</option>       
-        </select>        
-    </div>        
+    <input type="text" class="form-control" ng-model="eventSortOrder" placeholder="SortBy: title, votes..." /><hr>    
     
     <div class="row">
-        <div class="panel panel-default panel-primary event-width" ng-repeat="event in events | orderBy: sortOrder">
+        <div class="panel panel-default panel-primary event-width" ng-repeat="event in events | orderBy:eventSortOrder">
             <div class="panel-heading">{{ event.title | lowercase }}</div>
             <div class="panel-body">
                 {{ event.body }}

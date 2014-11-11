@@ -14,11 +14,9 @@
     });
 
 
-    app.controller('eventsCtrl', function ($scope) {
+    app.controller('eventsCtrl', function ($scope) {           
             
-            //$scope.sortOrder = '-title';
-            //console.log($scope.sortOrder);
-
+            
             $scope.events = [{ 
                 title: "AAA", 
                 body: "Body text Body textBody textBody textBody textBody textBody textBody textBody textBody textBody text",
@@ -47,8 +45,6 @@
                 votes: 3
             },
 
-
-
             { 
                 title: "EEE", 
                 body: "Body text Body textBody textBody textBody textBody textBody textBody textBody textBody textBody text",
@@ -56,6 +52,7 @@
                 votes: 2
             }];
 
+            
             $scope.upVote = function (event) {
                 event.votes += 1;
             };
@@ -63,6 +60,8 @@
             $scope.downVote = function (event) {
                 event.votes -= 1;
             };
+
+            $scope.eventSortOrder = 'title';
     });
 
 }());
