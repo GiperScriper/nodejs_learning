@@ -14,10 +14,9 @@
     });
 
 
-    app.controller('eventsCtrl', function ($scope) {
+    app.controller('eventsCtrl', function ($scope) {          
             
-            $scope.sortOrder = '-votes';
-            
+            $scope.eventSortOrder = '-votes';
 
             $scope.events = [{ 
                 title: "AAA", 
@@ -47,8 +46,6 @@
                 votes: 3
             },
 
-
-
             { 
                 title: "EEE", 
                 body: "Body text Body textBody textBody textBody textBody textBody textBody textBody textBody textBody text",
@@ -56,6 +53,7 @@
                 votes: 2
             }];
 
+            
             $scope.upVote = function (event) {
                 event.votes += 1;
             };
@@ -63,6 +61,8 @@
             $scope.downVote = function (event) {
                 event.votes -= 1;
             };
+
+            
     });
 
 }());

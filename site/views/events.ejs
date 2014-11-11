@@ -4,17 +4,16 @@
 <div class="starter-template" ng-controller="eventsCtrl"> 
     <h2>Events</h2>
     <hr>
-    
 
     <div class="row" style="margin-bottom:30px;">
         <select class="form-control" ng-model="sortOrder">
             <option value="title">Title</option>
             <option value="-votes">Votes</option>       
         </select>        
-    </div>        
+    </div>
     
     <div class="row">
-        <div class="panel panel-default panel-primary event-width" ng-repeat="event in events | orderBy: sortOrder">
+        <div class="panel panel-default panel-primary event-width" ng-repeat="event in events | orderBy:eventSortOrder">
             <div class="panel-heading">{{ event.title | lowercase }}</div>
             <div class="panel-body">
                 {{ event.body }}
