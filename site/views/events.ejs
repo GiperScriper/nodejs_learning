@@ -2,25 +2,27 @@
 <% block('title', 'Events'); %>
 
 <div class="starter-template" ng-controller="eventsCtrl"> 
-    <h2>Events</h2>
+    <h2>Events</h2><button class="btn btn-primary" ng-click="saveUser()">Add new User</button>
     <hr>
 
     <div class="row" style="margin-bottom:30px;">
-        <select class="form-control" ng-model="sortOrder">
+        <select class="form-control" ng-model="eventSortOrder">
             <option value="title">Title</option>
             <option value="-votes">Votes</option>       
         </select>        
     </div>
+
+    
     
     <div class="row">
         <div class="panel panel-default panel-primary event-width" ng-repeat="event in events | orderBy:eventSortOrder">
-            <div class="panel-heading">{{ event.title | lowercase }}</div>
+            <div class="panel-heading">{{ event.name | lowercase }}</div>
             <div class="panel-body">
-                {{ event.body }}
+                {{ event._id }}
             </div>
             <div class="panel-footer">
                 <span class="glyphicon glyphicon-minus votes-cursor" ng-click="downVote(event)"></span>
-                    votes: <span class="badge">{{ event.votes }}</span>
+                    votes: <span class="badge">{{ event.created | date:'short' }}</span>
                 <span class="glyphicon glyphicon-plus votes-cursor" ng-click="upVote(event)"></span>
             </div>
         </div> 

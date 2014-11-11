@@ -1,4 +1,4 @@
-(function (){
+//(function (){
     "use strict";
 
 	var app = angular.module('app', ['ngResource', 'ngRoute']);
@@ -14,45 +14,11 @@
     });
 
 
-    app.controller('eventsCtrl', function ($scope) {          
+    app.controller('eventsCtrl', function ($scope, eventsData, $resource) {          
             
-            $scope.eventSortOrder = '-votes';
-
-            $scope.events = [{ 
-                title: "AAA", 
-                body: "Body text Body textBody textBody textBody textBody textBody textBody textBody textBody textBody text",
-                date: "11/11/2014",
-                votes: 0
-            },
+            $scope.eventSortOrder = '-votes';             
             
-            {
-                title: "BBB", 
-                body: "Body text Body textBody textBody textBody textBody textBody textBody textBody textBody textBody text",
-                date: "12/11/2014",
-                votes: 1
-            },
-
-            {
-                title: "CCC", 
-                body: "Body text Body textBody textBody textBody textBody textBody textBody textBody textBody textBody text",
-                date: "12/11/2014",
-                votes: 4
-            },
-
-            {
-                title: "DDD", 
-                body: "Body text Body textBody textBody textBody textBody textBody textBody textBody textBody textBody text",
-                date: "12/11/2014",
-                votes: 3
-            },
-
-            { 
-                title: "EEE", 
-                body: "Body text Body textBody textBody textBody textBody textBody textBody textBody textBody textBody text",
-                date: "10/11/2014",
-                votes: 2
-            }];
-
+            $scope.events = eventsData.query();                        
             
             $scope.upVote = function (event) {
                 event.votes += 1;
@@ -62,7 +28,26 @@
                 event.votes -= 1;
             };
 
+
+            $scope.saveUser = function () {
+               var newUser = $resource('http://localhost:4000/users');
+               if (newUser.save({name: "Jorik", password: "just"})) {
+                    console.log('saved');
+                    $scope.events.push(newUser);
+                    
+               }
+            };           
+
             
     });
 
-}());
+
+    // custom filter
+    app.filter('aditionToBody', function () {
+        return function (input) {
+            return input + "ADITION FROM FILTER";
+        };
+    });    
+
+
+//}());
