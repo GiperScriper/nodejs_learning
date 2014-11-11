@@ -2,7 +2,7 @@
 <% block('title', 'Events'); %>
 
 <div class="starter-template" ng-controller="eventsCtrl"> 
-    <h2>Events</h2><button class="btn btn-primary" ng-click="saveUser()">Add new User</button>
+    <h2>Events</h2><button class="btn btn-primary">Add new User</button>
     <hr>
 
     <div class="row" style="margin-bottom:30px;">
@@ -12,7 +12,7 @@
         </select>        
     </div>
 
-    
+
     
     <div class="row">
         <div class="panel panel-default panel-primary event-width" ng-repeat="event in events | orderBy:eventSortOrder">
