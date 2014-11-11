@@ -16,8 +16,8 @@
 
     app.controller('eventsCtrl', function ($scope) {
             
-            //$scope.sortOrder = '-title';
-            //console.log($scope.sortOrder);
+            $scope.sortOrder = '-votes';
+            
 
             $scope.events = [{ 
                 title: "AAA", 
