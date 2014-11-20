@@ -40,12 +40,20 @@
             };
 
 
-            $scope.deleteUser = function (id) {
-                var newUser = $resource('http://localhost:4000/users/:id', { userId: '@id' });
-                console.log(newUser.get());
+            $scope.deleteUser = function (id) {                
+               console.log(id);
             }           
 
             
+    });
+
+
+    // About page controller
+    app.controller('aboutCtrl', function ($scope, $location, $anchorScroll) {
+        $scope.scrollTo = function (hash) {
+            $location.hash(hash);            
+            $anchorScroll();
+        };
     });
 
 
