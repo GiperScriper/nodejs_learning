@@ -127,4 +127,6 @@ function demethodize(func) {
     };
 };
 console.log("\n### Problem-9 ###");
-console.log("result: " + demethodize(Number.prototype.sum)(3, 5));    
+console.log("result: " + demethodize(Number.prototype.sum)(3, 5));
+
+
