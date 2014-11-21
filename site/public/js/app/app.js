@@ -6,7 +6,7 @@
     // app.config(function($routeProvider, $locationProvider){
     // 	$locationProvider.html5Mode(true);
     // 	$routeProvider
-    // 		.when('/', { templateUrl: 'index' , controller: 'mainCtrl'})
+    // 		.when('/about', { templateUrl: '../../views/about.ejs' , controller: 'aboutCtrl'})            
     // });
     
     app.controller('mainCtrl', function ($scope){
@@ -34,7 +34,7 @@
             $scope.saveUser = function (saveUserForm) {
                var newUser = $resource('http://localhost:4000/users');
                
-                newUser.save($scope.user, function(data){
+                newUser.save($scope.user, function (data) {
                     console.log(data);
                 }); 
             };

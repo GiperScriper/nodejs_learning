@@ -1,5 +1,5 @@
 // custom service
-app.factory('eventsData', function ($resource) {
+app.factory('eventsData', function ($resource, $timeout) {
     "use strict";
     
     return $resource('http://localhost:4000/users');
