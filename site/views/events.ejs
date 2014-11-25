@@ -20,8 +20,6 @@
     </div><br>
 
 
-
-
     <div class="row" style="margin-bottom:30px;">
         <select class="form-control" ng-model="eventSortOrder">
             <option value="title">Title</option>
@@ -30,20 +28,12 @@
     </div>
 
 
-    
     <div class="row">
-        <div class="panel panel-default panel-primary event-width" ng-repeat="event in events | orderBy:eventSortOrder">
-            <div class="panel-heading" ng-click="deleteUser(event._id)">{{ event.name | lowercase }}</div>
-            <div class="panel-body">
-                {{ event._id }}
-            </div>
-            <div class="panel-footer">
-                <span class="glyphicon glyphicon-minus votes-cursor" ng-click="downVote(event)"></span>
-                    votes: <span class="badge">{{ event.created | date:'short' }}</span>
-                <span class="glyphicon glyphicon-plus votes-cursor" ng-click="upVote(event)"></span>
-            </div>
+        <div class="" ng-repeat="event in events | orderBy:eventSortOrder">
+            <event-thumbnail>
         </div> 
     </div>
-    
+
+
     
 </div>
