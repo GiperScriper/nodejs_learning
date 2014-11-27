@@ -7,10 +7,10 @@
     <title>Contacts</title>
     <base href="/contacts">
 </head>
-<body>
-    <h1 ng-controller="mainCtrl">{{ message }}</h1>
+<body>   
     
     <div class="container">
+        <h1>Contacts App</h1>
         <div ng-view></div> 
     </div>
 
@@ -26,6 +26,12 @@
     <script src="../vendor/angular-route/angular-route.min.js"></script>
 
     <!-- Custom -->
-    <script src="../js/contact_app/app.js"></script>    
+    <script src="../js/contact_app/app.js"></script>
+
+    <!-- Controllers -->
+    <script src="../js/contact_app/controllers/contactList.js"></script>
+    
+    <!-- Services -->
+    <script src="../js/contact_app/services/getContact.js"></script>     
 </body>
 </html>
