@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="vendor/bootstrap/dist/css/flatly/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
-    
+    <base href="/">
   </head>
   
   <body>
@@ -26,6 +26,12 @@
             <li><a href="/users">Users</a></li>
             <li><a href="/events">Events</a></li>
             <li><a href="/about">About</a></li>
+            <li><a href="/contacts">Contacts</a></li>
+          </ul>
+          <!-- pull-right -->
+          <ul class="nav navbar-nav pull-right">
+            <li><a href="#" role="dialog" data-toggle="modal" data-target="#loginModal">Sign In</a></li>
+            <li><a href="#" role="dialog" data-toggle="modal" data-target="#RegisterModal">Sign Up</a></li>          
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -34,6 +40,9 @@
     <div class="container">
       <%- body -%>
     </div>
+
+    <%- include modals.ejs %>
+
     <%- include scripts.ejs %>
   </body>
 </html>

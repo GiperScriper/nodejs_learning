@@ -3,12 +3,21 @@
 
     var app = angular.module('app', ['ngResource', 'ngRoute']);
 
-    // app.config(function($routeProvider, $locationProvider){
-    // 	$locationProvider.html5Mode(true);
-    // 	$routeProvider
-    // 		.when('/about', { templateUrl: '../../views/about.ejs' , controller: 'aboutCtrl'})            
+    // app.config(function ($routeProvider, $locationProvider) {
+    	
+    //     avoid hash-bang in url
+    //     $locationProvider.html5Mode(true);
+    	
+    //     routes for Contacts page
+    //     $routeProvider
+    // 		.when('/contacts/new', { 
+    //             templateUrl: 'js/app/templates/contacts/newContact.ejs', 
+    //             controller: 'newContactCtrl'
+    //         })            
     // });
     
+    
+
     app.controller('mainCtrl', function ($scope){
         $scope.myVar = 'Hello Angular!';
     });

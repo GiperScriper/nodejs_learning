@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <link rel="stylesheet" href="../vendor/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../vendor/bootstrap/dist/css/flatly/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <title>Contacts</title>
+    <base href="/contacts">
+</head>
+<body>
+    <h1 ng-controller="mainCtrl">{{ message }}</h1>
+    
+    <div class="container">
+        <div ng-view></div> 
+    </div>
+
+    <!-- jQuery -->
+    <script src="../vendor/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <!-- Angular -->
+    <script src="../vendor/angular/angular.min.js"></script>
+    <script src="../vendor/angular-resource/angular-resource.min.js"></script>
+    <script src="../vendor/angular-route/angular-route.min.js"></script>
+
+    <!-- Custom -->
+    <script src="../js/contact_app/app.js"></script>    
+</body>
+</html>
